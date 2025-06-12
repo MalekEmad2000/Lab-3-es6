@@ -3,8 +3,8 @@ box-sizing: border-box;
 margin: 0 0 0 0;
 padding: 0;
 }
-
-header {
+/* class */
+.header {
   font-family : cursive;
   display: flex;
   align-items: center;
@@ -21,7 +21,6 @@ header {
 
 body {
 
-    
     display: flex;
     flex-direction: column;
     align-items: center;

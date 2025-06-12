@@ -1,13 +1,16 @@
 
-const navButtons=document.querySelectorAll(".menu-items button");
+const navContainer=document.querySelector(".menu-items");
 const menuContainer=document.querySelector(".menu-container");
 
+// used event delegation
+navContainer.addEventListener('click',(event)=>{
 
-navButtons.forEach(button=>{
-button.addEventListener('click',function(event){
- fetchSelectedCategory(this.textContent);
-})
+   if(event.target.tagName === 'BUTTON') {
+     fetchSelectedCategory(event.target.innerText);
+  }
 });
+
+
 
 async function fetchSelectedCategory(selectedCategory) {
     
@@ -31,6 +34,7 @@ function loadMenu(items){
 
     const menu =document.querySelector(".menu-container");
     menu.innerHTML="";
+    let menuContent="";
     items.forEach(element => {
         menuItem=`
     <div class="menu-item">
@@ -39,9 +43,10 @@ function loadMenu(items){
     <p>${element.title}</p>
     <h4>${element.publisher}</h4>
     </div>`
-    menu.innerHTML+=menuItem;
+    menuContent+=menuItem;
 
     });
+    menu.innerHTML=menuContent;
     
 }
 
